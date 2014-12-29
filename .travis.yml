@@ -1,0 +1,21 @@
+language: android
+
+# Configuration for android project
+android:
+  components:
+    # Check Android SDK tools: http://developer.android.com/tools/sdk/tools-notes.html
+    # Check Android SDK Platform-tools: http://developer.android.com/tools/revisions/platforms.html
+    # Comment the lines below if the latest revisions of Android SDK Tools are included by default.
+    # - tools-22
+    # - platform-tools
+    
+    # The BuildTools version used by your project
+    # - build-tools-20
+
+    # The SDK version used to compile your project
+    - android-19
+
+    # Specify at least one system image,
+    # if you need to run emulator(s) during your tests
+    - sys-img-armeabi-v7a-android-19
+
