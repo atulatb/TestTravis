@@ -84,7 +84,7 @@ after_success:
   #- cd /home/travis/build/Nikkei/dive_android/bin/
   - cd /home/travis/build/atulatb/TestTravis/bin/
   # copy python file
-  - /home/travis/build/atulatb/TestTravis/test4travis/GDriveUploader.py GDriveUploader.py
+  - cp /home/travis/build/atulatb/TestTravis/test4travis/GDriveUploader.py GDriveUploader.py
   # call python file to upload APK to Google Drive
   - python GDriveUploader.py
 
