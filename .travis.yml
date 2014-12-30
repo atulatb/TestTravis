@@ -18,8 +18,96 @@ android:
     # Specify at least one system image,
     # if you need to run emulator(s) during your tests
     - sys-img-armeabi-v7a-android-19
-    
-script:
-    - ant clean
-    - ant debug
+install:
+  # check ubutu version
+  - lsb_release -a
+  # update
+  - sudo apt-get update
 
+  # check ant version
+  - ant -version
+
+  # TravisCI => Google Drive
+  # check python version
+  - python --version
+  # install pyOpenSSL
+  - sudo pip install --upgrade pyOpenSSL
+  # install Google Client Library
+  - sudo pip install --upgrade google-api-python-client
+  # install pytz library
+  - wget https://pypi.python.org/packages/source/p/pytz/pytz-2014.10.tar.bz2
+  - ls
+  - tar -xjf pytz-2014.10.tar.bz2
+  - cd pytz-2014.10
+  - ls
+  - sudo python setup.py install
+  - cd ..
+
+  # Calabash-Android
+  # install calabash-android
+  #BinhNT6509 comment
+  #- gem install calabash-android
+  #- calabash-android version
+
+# Emulator Management: Create, Start and Wait
+# http://docs.travis-ci.com/user/languages/android/#How-to-Create-and-Start-an-Emulator
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  # give xvfb some time to start 
+  - sleep 3 
+  - echo no | android create avd --force -n test -t android-19 --abi armeabi-v7a
+  # check emulator config
+  - cat /home/travis/.android/avd/test.avd/config.ini
+  # change HEAP size
+  #BinhNT6509 comment
+  #- python /home/travis/build/Nikkei/dive_android/calabash/CalabashConfigEmulator.py
+   # check emulator config
+  - cat /home/travis/.android/avd/test.avd/config.ini
+  - emulator -avd test -no-skin -no-audio -no-window -no-boot-anim &
+  - android-wait-for-emulator
+  - adb shell input keyevent 82 &
+
+# run this script to build APK file
+script:
+  # Cleans the project. If you include the all target before clean (ant all clean), 
+  #     other projects are also cleaned. 
+  #     For instance if you clean a test project, the tested project is also cleaned.
+  - ant clean
+  # build debug version
+  - ant debug 
+
+# After build APK file success
+after_success:
+  # upload APK file to Google Drive after success
+  # change directory to [bin] folder
+  #- cd /home/travis/build/Nikkei/dive_android/bin/
+  - cd /home/travis/build/atulatb/TestTravis/bin/
+  # copy python file
+  - cp /home/travis/build/Nikkei/dive_android/test4travis/GDriveUploader.py GDriveUploader.py
+  # call python file to upload APK to Google Drive
+  - python GDriveUploader.py
+
+  # Calabash Android - auto test
+  # change directory to [calabash]
+  #- cd /home/travis/build/Nikkei/dive_android/calabash
+  # copy apk file
+  #- cp /home/travis/build/Nikkei/dive_android/bin/Nikkei_Dive-debug.apk NikkeiDive.apk
+  # list all files
+  - ls
+  # Calabash Android - resign apk file
+ # - calabash-android resign NikkeiDive.apk
+  # list all android devices
+  #- adb devices
+  #- adb install -r NikkeiDive.apk
+  # unlock if Andorid VM locked
+ # - adb shell input keyevent KEYCODE_MENU
+  # Calabash Android - run
+ # - calabash-android run NikkeiDive.apk  -v
+
+# Travis CI can notify you about your build results through email, IRC and/or webhooks.
+notifications:
+  # stop notify via email
+  email: false
+  # notify to Slack
+ # slack: nikkeidevs:YE7xexyfMPeAGkxxRcTE0xtG
