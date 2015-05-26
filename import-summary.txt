@@ -1,0 +1,77 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+* .travis.yml
+* build.xml
+* calabash\
+* calabash\.irb-history
+* calabash\CalabashConfigEmulator.py
+* calabash\README.md
+* calabash\features\
+* calabash\features\my_first.feature
+* calabash\features\step_definitions\
+* calabash\features\step_definitions\calabash_steps.rb
+* calabash\features\step_definitions\detail_screen.rb
+* calabash\features\step_definitions\testDemo.rb
+* calabash\features\support\
+* calabash\features\support\app_installation_hooks.rb
+* calabash\features\support\app_life_cycle_hooks.rb
+* calabash\features\support\env.rb
+* calabash\features\support\hooks.rb
+* calabash\features\test_servers\
+* calabash\features\test_servers\149e04a85c6da6b42b3387d6210010ae_0.5.5.apk
+* calabash\screenshot_0.png
+* calabash\testDemo.apk
+* calabash\test_servers\
+* calabash\test_servers\149e04a85c6da6b42b3387d6210010ae_0.5.5.apk
+* calabash\test_servers\5bf792af5cf6efb4349460d6ce46f455_0.5.5.apk
+* calabash\test_servers\5ea7895c71bed4676113527d261fbbf8_0.5.5.apk
+* calabash\test_servers\f49aecd3e2cdcdf5c42c6259a88f5435_0.5.5.apk
+* circle.yml
+* ic_launcher-web.png
+* proguard-project.txt
+* test4travis\
+* test4travis\GDriveUploader.py
+
+Replaced Jars with Dependencies:
+--------------------------------
+The importer recognized the following .jar files as third party
+libraries and replaced them with Gradle dependencies instead. This has
+the advantage that more explicit version information is known, and the
+libraries can be updated automatically. However, it is possible that
+the .jar file in your project was of an older version than the
+dependency we picked, which could render the project not compileable.
+You can disable the jar replacement in the import wizard and try again:
+
+android-support-v4.jar => com.android.support:support-v4:20.0.0
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+* AndroidManifest.xml => app\src\main\AndroidManifest.xml
+* assets\ => app\src\main\assets\
+* res\ => app\src\main\res\
+* src\ => app\src\main\java\
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)

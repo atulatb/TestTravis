@@ -1,0 +1,4 @@
+D:\TestTravis2\TestTravis\app\build\intermediates\classes\debug
+D:\TestTravis2\TestTravis\app\build\intermediates\pre-dexed\debug\support-annotations-20.0.0-a1be52f9a1ec8a5ca1375067b4fe1b7fb107d9ac.jar
+D:\TestTravis2\TestTravis\app\build\intermediates\pre-dexed\debug\internal_impl-20.0.0-f416010fdb093e1e7cdf8fbc0a2e05c8f9a84d41.jar
+D:\TestTravis2\TestTravis\app\build\intermediates\pre-dexed\debug\classes-e5c0e2d5545d2eba836de0007b6ea1fbef5215c0.jar
