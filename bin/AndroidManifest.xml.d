@@ -1,2 +1,2 @@
-D:\Project\testDemo\bin\AndroidManifest.xml : \
-D:\Project\testDemo\AndroidManifest.xml \
+D:\TestTravis2\TestTravis\bin\AndroidManifest.xml : \
+D:\TestTravis2\TestTravis\AndroidManifest.xml \
