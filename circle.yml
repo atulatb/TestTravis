@@ -16,5 +16,5 @@ dependencies:
         - ANDROID_HOME=/usr/local/android-sdk-linux ./gradlew dependencies
  
 test:
-    override:
-        - (./gradlew assemble):
+  override:
+    - ./gradlew assembleDebug
