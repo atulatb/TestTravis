@@ -25,7 +25,7 @@ test:
         background: true
         parallel: true
     # wait for it to have booted
-    #- circle-android wait-for-boot
+    - circle-android wait-for-boot
     # run tests  against the emulator.
     - ./gradlew assemble test
     # copy the build outputs to artifacts
