@@ -14,7 +14,6 @@ allprojects {
     }
 }
 apply plugin: 'com.android.application'
-apply plugin: 'android-apt'
 
 android {
     compileSdkVersion 19
