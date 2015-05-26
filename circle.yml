@@ -11,15 +11,13 @@ machine:
         ANDROID_HOME: /usr/local/android-sdk-linux
  
 dependencies:
+   
     override:
-        - bash install-dependencies.sh
         - echo y | android update sdk --no-ui --all --filter tools,platform-tools,build-tools-21.0.2,android-21,extra-google-m2repository,extra-google-google_play_services,extra-android-support
         - ANDROID_HOME=/usr/local/android-sdk-linux
-        
  
 test:
   override:
-    -chmod +x gradlew
      # start the emulator
     - emulator -avd circleci-android22 -no-audio -no-window:
         background: true
@@ -27,7 +25,7 @@ test:
     # wait for it to have booted
     - circle-android wait-for-boot
     # run tests  against the emulator.
-    - ./gradlew assemble test
+    - ./gradlew build
     # copy the build outputs to artifacts
     - cp -r my-project/build/outputs $CIRCLE_ARTIFACTS
     # copy the test results to the test results directory.
